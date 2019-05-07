@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "scanId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

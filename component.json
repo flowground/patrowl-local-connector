@@ -1,0 +1,281 @@
+{
+    "title": "Swagger API-REST for Patrowl Engines",
+    "description": "This is the API documentation for Patrowl Engines usage.",
+    "docsUrl": "https://github.com/Patrowl/PatrowlDocs",
+    "url": "https://api.apis.guru/v2/specs/patrowl.local/1.0.0/openapi.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://localhost:5001/engines/nmap/",
+                    "http://localhost:5004/engines/ssllabs/",
+                    "http://localhost:5005/engines/arachni/",
+                    "http://localhost:5006/engines/owl_dns/",
+                    "http://localhost:5007/engines/virustotal/",
+                    "http://localhost:5008/engines/urlvoid/",
+                    "http://localhost:5009/engines/cortex/",
+                    "http://localhost:5012/engines/owl_leaks/",
+                    "http://localhost:5013/engines/owl_code/",
+                    "http://localhost:5014/engines/sslscan/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getDefaultPage": {
+            "main": "./lib/actions/getDefaultPage.js",
+            "title": "Index page",
+            "description": "Return index page",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDefaultPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CleanScansPage": {
+            "main": "./lib/actions/CleanScansPage.js",
+            "title": "Clean all scans",
+            "description": "Clean all current scans.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CleanScansPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CleanScanPage": {
+            "main": "./lib/actions/CleanScanPage.js",
+            "title": "Clean scan",
+            "description": "Clean scan identified by id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CleanScanPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetFindingPage": {
+            "main": "./lib/actions/GetFindingPage.js",
+            "title": "Get findings on finished scans",
+            "description": "Get findings on finished scans.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetFindingPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getInfoPage": {
+            "main": "./lib/actions/getInfoPage.js",
+            "title": "Engine info page",
+            "description": "Return information on engine.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getInfoPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLivenessPage": {
+            "main": "./lib/actions/getLivenessPage.js",
+            "title": "Liveness page",
+            "description": "Return liveness page",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLivenessPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getReadinessPage": {
+            "main": "./lib/actions/getReadinessPage.js",
+            "title": "Readiness page",
+            "description": "Return liveness page",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getReadinessPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reloadConfigurationPage": {
+            "main": "./lib/actions/reloadConfigurationPage.js",
+            "title": "Configuration reloading page",
+            "description": "Reload the configuration file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reloadConfigurationPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartScanPage": {
+            "main": "./lib/actions/StartScanPage.js",
+            "title": "Start a new scan",
+            "description": "Start a new scan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartScanPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StatusScansPage": {
+            "main": "./lib/actions/StatusScansPage.js",
+            "title": "Status on all scans",
+            "description": "Status all current scans.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StatusScansPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StatusScanPage": {
+            "main": "./lib/actions/StatusScanPage.js",
+            "title": "Status of a scan",
+            "description": "Status of a scan identified by id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StatusScanPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StopScanPage": {
+            "main": "./lib/actions/StopScanPage.js",
+            "title": "Stop a scan",
+            "description": "Stop a scan identified by id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StopScanPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StopScansPage": {
+            "main": "./lib/actions/StopScansPage.js",
+            "title": "Stop all scans",
+            "description": "Stop all current scans.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StopScansPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTestPage": {
+            "main": "./lib/actions/getTestPage.js",
+            "title": "Test page",
+            "description": "Return test page",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTestPage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

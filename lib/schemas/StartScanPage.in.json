@@ -1,0 +1,57 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "assets": {
+                    "items": {
+                        "properties": {
+                            "criticity": {
+                                "enum": [
+                                    "low",
+                                    "medium",
+                                    "high"
+                                ],
+                                "type": "string"
+                            },
+                            "datatype": {
+                                "enum": [
+                                    "ip",
+                                    "ip-range",
+                                    "ip-subnet",
+                                    "fqdn",
+                                    "domain",
+                                    "url",
+                                    "keyword",
+                                    "person",
+                                    "organisation",
+                                    "path",
+                                    "application"
+                                ],
+                                "type": "string"
+                            },
+                            "id": {
+                                "example": "3",
+                                "type": "string"
+                            },
+                            "value": {
+                                "example": "8.8.8.8",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "options": {
+                    "type": "object"
+                },
+                "scan_id": {
+                    "example": 1,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
